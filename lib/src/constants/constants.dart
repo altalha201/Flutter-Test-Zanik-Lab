@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class Constants {
   // urls
   static String apiUrl = "https://mocki.io/v1/02e91d9f-4d8c-4eb4-a4f9-bb4a60ffdaf9";
+  static String imagePlaceholder = "https://cpworldgroup.com/wp-content/uploads/2021/01/placeholder.png";
 
   // assets
 

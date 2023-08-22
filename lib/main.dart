@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+import 'src/constants/constants.dart';
+import 'src/controller/home_tabs_controller.dart';
 import 'src/controller/image_get_controller.dart';
-import 'src/ui/screens/home_screen.dart';
+import 'src/ui/screens/splash_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,9 +19,13 @@ class MyApp extends StatelessWidget {
       title: 'Text Application',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        primaryColor: Constants.primaryOrange,
         useMaterial3: true,
+        progressIndicatorTheme: const ProgressIndicatorThemeData(
+          color: Constants.primaryOrange
+        )
       ),
-      home: const HomeScreen(),
+      home: const SplashScreen(),
       initialBinding: AppBindings(),
     );
   }
@@ -28,6 +34,7 @@ class MyApp extends StatelessWidget {
 class AppBindings extends Bindings {
   @override
   void dependencies() {
+    Get.put(HomeTabsController());
     Get.put(ImageGetController());
   }
 
