@@ -2,6 +2,9 @@ import 'package:flutter/material.dart';
 
 import '../../constants/constants.dart';
 import '../../data/models/product_model.dart';
+import '../components/image_carousel_slider.dart';
+import '../components/product_bottom_bar.dart';
+import '../components/product_info_card.dart';
 
 class ProductScreen extends StatelessWidget {
   const ProductScreen({
@@ -26,11 +29,34 @@ class ProductScreen extends StatelessWidget {
           ),
         ],
       ),
-      body: Column(
+      body: ListView(
         children: [
-          Image.network(item.thumbnail ?? Constants.imagePlaceholder),
+          ImageCarouselSlider(images: item.images ?? []),
+          ProductInfoCard(item: item, discountedPrice: discountedPrice),
+          const SizedBox(height: 8.0),
+          Container(
+            color: Colors.white,
+            padding: const EdgeInsets.all(16.0),
+            width: double.infinity,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Description",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.grey.shade500,
+                  ),
+                ),
+                const SizedBox(height: 8.0),
+                Text(item.description ?? ""),
+              ],
+            ),
+          )
         ],
       ),
+      bottomNavigationBar: const ProductBottomBar(),
     );
   }
 }

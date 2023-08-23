@@ -21,9 +21,10 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primaryColor: Constants.primaryOrange,
         useMaterial3: true,
+        scaffoldBackgroundColor: Colors.grey.shade300,
         progressIndicatorTheme: const ProgressIndicatorThemeData(
           color: Constants.primaryOrange
-        )
+        ),
       ),
       home: const SplashScreen(),
       initialBinding: AppBindings(),

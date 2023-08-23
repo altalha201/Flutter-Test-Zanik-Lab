@@ -83,6 +83,7 @@ class ProductDialog extends StatelessWidget {
               width: double.infinity,
               child: FilledButton(
                 onPressed: () {
+                  Get.back();
                   Get.to(ProductScreen(item: item, discountedPrice: price));
                 },
                 style: FilledButton.styleFrom(
